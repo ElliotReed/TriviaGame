@@ -20,29 +20,60 @@ function run() {
   }).then(function(response) {
     // Hide loading gif
     $("#loader").hide();
-
-      // Call timeout
-    var timeToAnswer = setInterval(play, 5000);
+    // Get question from array
+    displayQuestion(response.results[numberOfQuestions - 1]);
+    questionTimer(30);
+    
+    // Call timeout
+    var timeToAnswer = setInterval(play, 15000);
     
     function play() {
+      questionTimer(30);
       console.log(intervalCounter);
       console.log('tik tock');
-      intervalCounter++;
-      numberOfQuestions--;
+      $('#game').empty();
+      // Get question from array
+      displayQuestion(response.results[numberOfQuestions - 1]);
 
-    
+
+  
       if (intervalCounter === 5) {
         console.log('done');
         clearInterval(timeToAnswer);
+      } else {
+         var waitTime = setInterval(function() {
+
+          // clearInterval(waitTime);
+         }, 5000);
       }
-    }
+
+      $('button').click(function() {
+        var answer = $(this).attr('value');
+        $('#game').empty();
+        // displayAnswer(answer);
+        // alert(answer);
+      });
+
+    } // /Play
     
-    
+
+
   }); // /ajax   
 
 } // /run
 
 
+function questionTimer(seconds) {
+  var el = $('#timeRemaining');
+  el.text('You have ' + seconds + ' seconds remaining.');
+  if (seconds < 1) {
+    clearTimeout(timer);
+    numberOfQuestions--;
+    console.log(numberOfQuestions);
+  };
+  seconds--;
+  var timer = setTimeout('questionTimer(' + seconds + ',"' + el +'")', 1000);
+}
     // Get question from array
     // displayQuestion(response.results[numberOfQuestions - 1]);
     // numberOfQuestions--;
@@ -107,6 +138,8 @@ function run() {
 
 function displayQuestion(response) {
   var game = $('#game');
+  intervalCounter++;
+  numberOfQuestions--;
 
   // Create the category element
   game.append($('<p />', {
@@ -148,13 +181,13 @@ function displayQuestion(response) {
 } // /displayQuestion
 
 // Display answer status
-function displayAswer() {
+function displayAnswer(correctIncorrect) {
   var game = $('#game');
   
   // Create the category element
   game.append($('<p />', {
                   "class": "category",
-                  "text": "The category is " + response.category
+                  "text": "You are " + response.category + "!";
   }));
 
   //Create the question 
