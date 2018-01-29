@@ -158,6 +158,22 @@ p {
     font-size: 14px;
 }
 
+.loader {
+  border: 10 px solid white;
+  z-index: 99;
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  height: 40%;
+  width: 40%;
+  background: url('../../assets/images/loading.gif') no-repeat center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
 /* Modal */
 .messages {
     display: none;
