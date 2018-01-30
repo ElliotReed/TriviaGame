@@ -193,7 +193,7 @@ p {
 .header {
     font-family: 'Bungee Shade', cursive;
     text-align: center;
-    font-size: 1em;
+    font-size: 2em;
     color: green;
 
     margin: 1em;
@@ -227,6 +227,7 @@ p {
 
 
 .timeRemaining {
+  font-size: 5em;
   line-height: 2em;
 }
 
