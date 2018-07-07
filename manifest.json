@@ -1,0 +1,17 @@
+{
+  "name": "Totally Trivial Trivia",
+  "short_name": "Trivial",
+  "theme_color": "rgba(1,160,1,0.89)",
+  "background_color": "rgba(255,255,0,0.651)",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "./index.html",
+}
