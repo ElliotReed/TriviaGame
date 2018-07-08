@@ -97,7 +97,7 @@ function displayQuestion(question) {
   // Category element
   gameArena.append($('<p />', {
     "class": "category",
-    "text": "The category is " + question.category
+    "html": "The category is " + question.category
   }));
   
   // Question element
@@ -132,7 +132,7 @@ function displayCorrectAnswer() {
   var correctAnswerText = questions[questionIterator - 1].correct_answer;
   $('#gameArena').append($('<p />', {
     "class": "correct-answer",
-    "text": "The correct answer is: " + correctAnswerText
+    "html": "The correct answer is: " + correctAnswerText
   }));
 }
 
