@@ -1,7 +1,7 @@
 var questions = [];
 var numberOfGivenAnswers = 4;
 var questionIterator = 0;
-var timerDefaultTime = 30;
+var timerDefaultTime = 20;
 var timerCounter = timerDefaultTime;
 var timer;
 var correctAnswers = 0;
@@ -10,7 +10,6 @@ var incorrectAnswers = 0;
 // Resets ===========================
 function timerReset() {
   clearInterval(timer);
-  timerCounter = timerDefaultTime;
 }
 
 function gameReset() {
@@ -194,12 +193,15 @@ $(document).on('click', '#startButton', function() {
 });
 
 $(document).on("click", ".answer-button", function() {
-  var isAnswerCorrect = $(this).attr("value");
-  timerReset();
-  $('#gameArena').empty();
-  testAnswer(isAnswerCorrect);
+  if (timerCounter !== 0) {
+    var isAnswerCorrect = $(this).attr("value");
+    timerReset();
+    $('#gameArena').empty();
+    testAnswer(isAnswerCorrect);
+  }
 });
 
 $(document).on("click", ".btn--next", function() {
+  timerCounter = timerDefaultTime;
   playGame();
 });
