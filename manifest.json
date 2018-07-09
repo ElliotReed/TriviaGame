@@ -13,5 +13,5 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./index.html"
 }
